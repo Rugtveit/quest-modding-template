@@ -30,7 +30,7 @@ MAKE_HOOK_OFFSETLESS(SceneManager_SetActiveScene, bool, Scene scene)
 {
     // Getting C# String from scene handle
     // private static extern string GetNameInternal(int sceneHandle);
-    Il2CppString* sceneCsString = RET_V_UNLESS(il2cpp_utils::RunMethod("UnityEngine.SceneManagement", "Scene", "GetNameInternal", scene.m_Handle));
+    Il2CppString* sceneCsString = RET_0_UNLESS(il2cpp_utils::RunMethod("UnityEngine.SceneManagement", "Scene", "GetNameInternal", scene.m_Handle));
 
     // Converting from C# string to string
     // Converting from to_utf16 to utf8 string
@@ -51,5 +51,5 @@ extern "C" void load()
     // We first give it the name of our hook we made
     // Then we need to provide it with methodinfo* to find out where to hook
     // We run FindMethodUnsafe and provide it, namespace, klass, method and parameter count.
-    INSTALL_HOOK_OFFSETLESS(SceneManager_SetActiveScene, il2cpp_utils::FindMethodUnsafe("UnityEngine.SceneManagement", "SceneManager", "SetSceneActive", 1));
+    INSTALL_HOOK_OFFSETLESS(SceneManager_SetActiveScene, il2cpp_utils::FindMethodUnsafe("UnityEngine.SceneManagement", "SceneManager", "SetActiveScene", 1));
 }
